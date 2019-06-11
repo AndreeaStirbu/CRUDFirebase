@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add a word</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+        <script src="word.js"></script>
+    </head>
+    <body>
+        <h3>Add a word</h3>
+        <div id="container">
+            <form id="addForm" onsubmit="return false">
+                <label for="word">Word</label>
+                <input id="word" name="word" type="text" />
+
+                <label for="meaning">Meaning</label>
+                <input id="meaning" name="meaning" type="text" />
+
+                <button type="submit" onclick="addWord()">Add a word</button>
+            </form>
+        </div>
+        <div id="wordsContainer">
+            <ul id="listWords"></ul>
+        </div>
+        <form id="editForm" onsubmit="return false">
+            <label for="editWord">Word</label>
+            <input id="editWord" name="word" type="text" />
+
+            <label for="editMeaning">Meaning</label>
+            <input id="editMeaning" name="meaning" type="text" />
+
+            <input id="key" type="hidden" name="key">
+            <button type="submit" onclick="editWordFunction()">Edit a word</button>
+        </form>
+    </body>
+</html>
