@@ -6,32 +6,50 @@
         <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
         <script src="word.js"></script>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     </head>
     <body>
         <h3>Add a word</h3>
-        <div id="container">
-            <form id="addForm" onsubmit="return false">
-                <label for="word">Word</label>
-                <input id="word" name="word" type="text" />
 
-                <label for="meaning">Meaning</label>
-                <input id="meaning" name="meaning" type="text" />
-
-                <button type="submit" onclick="addWord()">Add a word</button>
+        <div class="container">
+            <div id="wordsContainer">
+                    <ul id="listWords"></ul>
+            </div>
+            
+            <form class="add-form" id="addForm" onsubmit="return false">
+                <div id="fields">
+                    <div class="mdl-textfield mdl-js-textfield field">
+                        <input class="mdl-textfield__input" type="text" id="word">
+                        <label class="mdl-textfield__label" for="word">Word</label>
+                    </div>
+        
+                    <div class="mdl-textfield mdl-js-textfield field">
+                        <input class="mdl-textfield__input" type="text" id="meaning">
+                        <label class="mdl-textfield__label" for="meaning">Meaning</label>
+                    </div>
+                </div>
+                
+    
+                <button id="addButton" type="submit" onclick="addWord()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">add</i>
+                </button>
+            </form>
+    
+            
+            <form id="editForm" onsubmit="return false">
+                <label for="editWord">Word</label>
+                <input id="editWord" name="word" type="text" />
+    
+                <label for="editMeaning">Meaning</label>
+                <input id="editMeaning" name="meaning" type="text" />
+    
+                <input id="key" type="hidden" name="key">
+                <button id="editButton" type="submit" onclick="editWordFunction()">Edit a word</button>
             </form>
         </div>
-        <div id="wordsContainer">
-            <ul id="listWords"></ul>
-        </div>
-        <form id="editForm" onsubmit="return false">
-            <label for="editWord">Word</label>
-            <input id="editWord" name="word" type="text" />
-
-            <label for="editMeaning">Meaning</label>
-            <input id="editMeaning" name="meaning" type="text" />
-
-            <input id="key" type="hidden" name="key">
-            <button type="submit" onclick="editWordFunction()">Edit a word</button>
-        </form>
     </body>
 </html>

@@ -6,14 +6,15 @@ var firebaseConfig = {
     storageBucket: "words-422c1.appspot.com",
     messagingSenderId: "307898064238",
     appId: "1:307898064238:web:c0893950b25c3ff0"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+var words =  database.ref('words');
 
 
 function addWord() {
-    var database = firebase.database();
-    var words =  database.ref('words');
     var word = document.getElementById("word").value;
     var meaning = document.getElementById("meaning").value;
     words.push({
@@ -24,8 +25,6 @@ function addWord() {
 }
 
 function editWordFunction() {
-    var database = firebase.database();
-    var words =  database.ref('words');
     var word = document.getElementById("editWord").value;
     var meaning = document.getElementById("editMeaning").value;
     var key = document.getElementById("key").value;
@@ -35,6 +34,7 @@ function editWordFunction() {
     });
     document.getElementById("editForm").reset();
     document.getElementById("editForm").style.display = "none";
+    document.getElementById('addForm').style.display = "block";
 }
 
 var database = firebase.database();
@@ -66,6 +66,7 @@ function gotData(data){
                 ref.child(key).remove();
             }, false);
             editButton.addEventListener('click', function(e){
+                document.getElementById('addForm').style.display = "none";
                 var editForm = document.getElementById("editForm");
                 editForm.style.display = "block";
                 var editWord = document.getElementById("editWord");
