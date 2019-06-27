@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     </head>
     <body>
-        <h3>Add a word</h3>
+        <h3 id="title">Add a word</h3>
 
         <div class="container">
             <div id="wordsContainer">
-                    <ul id="listWords"></ul>
+                <ul id="listWords"></ul>
             </div>
             
             <form class="add-form" id="addForm" onsubmit="return false">
@@ -41,14 +41,21 @@
     
             
             <form id="editForm" onsubmit="return false">
-                <label for="editWord">Word</label>
-                <input id="editWord" name="word" type="text" />
-    
-                <label for="editMeaning">Meaning</label>
-                <input id="editMeaning" name="meaning" type="text" />
-    
+                <div id="fields">
+                    <div class="mdl-textfield mdl-js-textfield field">
+                        <input class="mdl-textfield__input" type="text" id="editWord">
+                        <label class="mdl-textfield__label" for="editWord"></label>
+                    </div>
+        
+                    <div class="mdl-textfield mdl-js-textfield field">
+                        <input class="mdl-textfield__input" type="text" id="editMeaning">
+                        <label class="mdl-textfield__label" for="editMeaning"></label>
+                    </div>
+                </div>
                 <input id="key" type="hidden" name="key">
-                <button id="editButton" type="submit" onclick="editWordFunction()">Edit a word</button>
+                <button id="editButton" type="submit" onclick="editWordFunction()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">check</i>
+                </button>
             </form>
         </div>
     </body>

@@ -59,8 +59,10 @@ function gotData(data){
             var node = document.createElement("li");
             var deleteButton = document.createElement("button");
             var editButton = document.createElement("button");
-            deleteButton.innerHTML = "Delete";
-            editButton.innerHTML = "Edit";
+            editButton.innerHTML = `<i class="material-icons">edit</i>`
+            editButton.classList.add('mdl-button--colored', 'mdl-button', 'mdl-js-button');
+            deleteButton.innerHTML = `<i class="material-icons">delete</i>`;
+            deleteButton.classList.add('mdl-button--colored', 'mdl-button', 'mdl-js-button');
             deleteButton.addEventListener('click', function(e){
                 listWords.removeChild(this.parentNode);
                 ref.child(key).remove();
@@ -79,7 +81,6 @@ function gotData(data){
             var label = document.createElement("label");
             var textNode = document.createTextNode(`${word} - ${meaning}`);
             label.appendChild(textNode);
-            //node.appendChild(textNode);
             node.appendChild(label);
             node.appendChild(editButton);
             node.appendChild(deleteButton);
